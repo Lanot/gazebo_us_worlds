@@ -1,7 +1,30 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
-  <world name="usa_ny_statue_of_liberty">
+  <world name="map">
     <gravity>0 0 -9.8066</gravity>
+
+    <physics name="1ms" type="ignore">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <!--
+      <dart>
+        <collision_detector>bullet</collision_detector>
+      </dart>
+      -->
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu" />
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat" />
+
+    <plugin name='gz::sim::systems::AirPressure' filename='gz-sim-air-pressure-system'/>
+    <plugin name='gz::sim::systems::ApplyLinkWrench' filename='gz-sim-apply-link-wrench-system'/>
+    <plugin name='gz::sim::systems::Magnetometer' filename='gz-sim-magnetometer-system'/>
 
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -9,14 +32,6 @@
       <longitude_deg>-74.0203857421875</longitude_deg>
       <elevation>1.0</elevation>
     </spherical_coordinates>
-
-        
-    <physics name="1ms" type="ignored">
-      <dart>
-        <!-- Heightmaps behave better with the bullet collision detector -->
-        <collision_detector>bullet</collision_detector>
-      </dart>
-    </physics>
 
     <light type="directional" name="sun">
       <cast_shadows>true</cast_shadows>
@@ -41,7 +56,6 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/saiaravind19/models/helipad</uri>
     </include>
-
 
   </world>
 </sdf>
