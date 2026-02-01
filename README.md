@@ -1,4 +1,4 @@
-# Sample gazebo_us_worlds for UAV Flying testing
+# Sample gazebo_us_worlds for UAV Flying Simulations
 
 gz sim -v4 -r usa_ny_governors_island.sdf
 
