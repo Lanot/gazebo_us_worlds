@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
-  <world name="usa_ny_governors_island">
+  <world name="map">
     <gravity>0 0 -9.8066</gravity>
 
     <!-- Spherical Coordinates of Launch Position -->
